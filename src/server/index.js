@@ -1,14 +1,13 @@
 import './envVariable';
 import express from 'express';
 import path from 'path';
-import config from '../../config/webpack.dev';
-import webpack from 'webpack';
-
 
 const app = express();
 const compiler = webpack(config);
 
 if (process.env !== 'production') {
+    import config from '../../config/webpack.dev';
+    import webpack from 'webpack';
     const webpackDevMiddleware = require('webpack-dev-middleware')(
         compiler,
         config.devServer
