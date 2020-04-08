@@ -3,11 +3,11 @@ import express from 'express';
 import path from 'path';
 
 const app = express();
-const compiler = webpack(config);
 
 if (process.env !== 'production') {
     import config from '../../config/webpack.dev';
     import webpack from 'webpack';
+    const compiler = webpack(config);
     const webpackDevMiddleware = require('webpack-dev-middleware')(
         compiler,
         config.devServer
