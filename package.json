@@ -6,8 +6,8 @@
   "scripts": {
     "start:dev": "nodemon --exec babel-node ./src/server",
     "build:dev": "rimraf dist && webpack --config=config/webpack.dev.js",
-    "build:prod": "rimraf dist && webpack --config=config/webpack.prod.js && babel src/server -d dist/server",
-    "start:prod": "npm run build:prod && node ./dist/server"
+    "build": "rimraf dist && webpack --config=config/webpack.prod.js && babel src/server -d dist/server",
+    "start:prod": "npm run build && node ./dist/server"
   },
   "keywords": [
     "Learning webpack"
