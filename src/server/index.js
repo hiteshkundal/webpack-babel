@@ -1,4 +1,4 @@
-import '../../envVariable';
+import './envVariable';
 import express from 'express';
 import path from 'path';
 import config from '../../config/webpack.dev';
