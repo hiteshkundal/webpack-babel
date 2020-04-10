@@ -19,4 +19,17 @@
   - SASS with style-loader, css-loader, sass-loader
  - Rebuilding Webpack dev server with node and express
  - Hook up react with custom webpack config
- 
+ - CSS production ready
+   - mini-css-extract-plugin - to extract the css from JS
+   - optimize-css-assets-webpack-plugin - to minify and creating shared css
+ - JS production ready
+   - Add NODE_ENV=production to webpack by Webpack.DefinePlugin(). This plugin is used by react and many other modules to optimize the bundle. For example, react uses this to reduce bundle size and remove many things like error messages which are only relavant in development.
+   - babel-minify-webpack-plugin to minifed JS
+   - ugligyjs-webpack-plugin to minify JS
+ - Compression
+   - use compression-webpack-plugin to compress the assets including html, css, bundle, images, etc.
+   - Use express-static-gzip to serve gzip files
+   - Use brotli compression to compress more.
+ - Split Chunks
+   - use bundle-analyzer to analyze the bundle size
+   - Optimation option for spliting and optimizing the bundle.
