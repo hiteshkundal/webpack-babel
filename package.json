@@ -6,8 +6,9 @@
   "scripts": {
     "start:dev": "nodemon --exec babel-node ./src/server",
     "build:dev": "rimraf dist && webpack --config=config/webpack.dev.js",
-    "build": "rimraf dist && webpack --config=config/webpack.prod.js && babel src/server -d dist/server",
-    "start:prod": "node ./dist/server"
+    "build": "NODE_ENV=production rimraf dist && webpack --config=config/webpack.prod.js --env.NODE_ENV=production && babel src/server -d dist/server",
+    "start:prod": "node ./dist/server",
+    "clear": "rimraf dist"
   },
   "keywords": [
     "Learning webpack"
@@ -23,9 +24,16 @@
     "@babel/preset-react": "^7.9.4",
     "@babel/register": "^7.9.0",
     "babel-core": "^6.26.3",
+    "babel-minify-webpack-plugin": "^0.3.1",
+    "brotli-webpack-plugin": "^1.1.0",
+    "compression-webpack-plugin": "^3.1.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "nodemon": "^2.0.2",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "rimraf": "^3.0.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.42.1",
+    "webpack-bundle-analyzer": "^3.6.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.10.3",
@@ -36,6 +44,7 @@
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "express-static-gzip": "^2.0.6",
     "extract-loader": "^5.0.1",
     "file-loader": "^6.0.0",
     "html-loader": "^1.1.0",

@@ -5,7 +5,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'development',
     entry: {
-        main: path.resolve(__dirname, '../src/main.js')
+        main: ['webpack-hot-middleware/client?reload=true', path.resolve(__dirname, '../src/main.js')]
     },
     output: {
         filename: '[name]-bundle.js',

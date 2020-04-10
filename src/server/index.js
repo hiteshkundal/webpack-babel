@@ -1,6 +1,7 @@
 import './envVariable';
 import express from 'express';
 import path from 'path';
+import expressStaticGzip from 'express-static-gzip'
 
 const app = express();
 
@@ -17,8 +18,10 @@ const app = express();
 //     app.use(webpackDevMiddleware);
 //     app.use(webpackHotMiddleware)
 // }
-
-const staticMiddleware = express.static(path.resolve(__dirname, '../../dist'));
+const staticMiddleware = expressStaticGzip('dist', {
+    enableBrotli: true,
+});
+// const staticMiddleware = express.static(path.resolve(__dirname, '../../dist'));
 app.use(staticMiddleware)
 
 const port = process.env.PORT || 3000;
